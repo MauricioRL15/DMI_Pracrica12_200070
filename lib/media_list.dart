@@ -1,13 +1,11 @@
-import 'package:dmi_practica12_200070/media.detail.dart';
 import 'package:flutter/material.dart';
 // import 'package:dmi_practica11_200070/common/HttpHandler.dart';
 import 'package:dmi_practica12_200070/model/Media.dart';
 import 'package:dmi_practica12_200070/media_list_item.dart';
 import 'package:dmi_practica12_200070/common/MediaProvider.dart';
-
+import 'package:dmi_practica12_200070/media_detail.dart';
 
 class MediaList extends StatefulWidget {
-
   final MediaProvider provider;
   String category;
   MediaList(this.provider, this.category);
@@ -25,7 +23,7 @@ class _MediaListState extends State<MediaList> {
   }
 
   @override
-  void didUpdateWidget(MediaList oldWidget){
+  void didUpdateWidget(MediaList oldWidget) {
     if (oldWidget.provider.runtimeType != widget.provider.runtimeType) {
       _media = [];
       loadMedia();
@@ -46,13 +44,16 @@ class _MediaListState extends State<MediaList> {
       child: ListView.builder(
         itemCount: _media.length,
         itemBuilder: (BuildContext context, int index) {
-          return ElevatedButton(
-            child: MediaListItem(_media[index]),
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-                return MediaDetail(_media[index]);
-              }));
-            }
+          return Container(
+            margin: const EdgeInsets.all(8), // Establece el margen aquí
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return MediaDetail(_media[index]);
+                }));
+              },
+              child: MediaListItem(_media[index]),
+            ),
           );
         },
       ),
