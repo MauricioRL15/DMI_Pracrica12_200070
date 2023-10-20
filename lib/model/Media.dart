@@ -1,5 +1,5 @@
 import 'package:dmi_practica11_200070/common/Util.dart';
-import 'package:dmi_practica11_200070/common/MediaProvider.dart';
+// import 'package:dmi_practica11_200070/common/MediaProvider.dart';
 
 class Media {
   int id;
@@ -13,7 +13,6 @@ class Media {
 
   String getPosterUrl() => getMediumPictureUrl(posterPath);
   String getbackDropUrl() => getLargePictureUrl(backdropPath);
-  // List<String?> getGenres() => genresToList(genreIds);
   String getGenres() => getGenreValues(genreIds);
   int getReleaseYear() {
     if (releaseDate == null || releaseDate == "") {
@@ -37,18 +36,9 @@ class Media {
         posterPath = json["poster_path"] ?? "",
         backdropPath = json["backdrop_path"] ?? "",
         overview = json["overview"],
-        releaseDate = json[mediaType == MediaType.movie ? "release_date" : "first_air_date"],
+        releaseDate = json[
+            mediaType == MediaType.movie ? "release_date" : "first_air_date"],
         genreIds = json["genre_ids"].toList();
-
-  // Media.deserialize(Map json)
-  //     : id = json["id"].toInt(),
-  //       voteAverage = json["vote_average"].toDouble(),
-  //       title = json["title"],
-  //       posterPath = json["poster_path"] ?? "",
-  //       backdropPath = json["backdrop_path"] ?? "",
-  //       overview = json["overview"],
-  //       releaseDate = json["release_date"], // Corrected field name
-  //       genreIds = List<int>.from(json["genre_ids"]);
 }
 
-enum MediaType {movie, show}
+enum MediaType { movie, show }

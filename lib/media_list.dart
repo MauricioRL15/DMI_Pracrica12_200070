@@ -1,6 +1,6 @@
 import 'package:dmi_practica11_200070/media.detail.dart';
 import 'package:flutter/material.dart';
-import 'package:dmi_practica11_200070/common/HttpHandler.dart';
+// import 'package:dmi_practica11_200070/common/HttpHandler.dart';
 import 'package:dmi_practica11_200070/model/Media.dart';
 import 'package:dmi_practica11_200070/media_list_item.dart';
 import 'package:dmi_practica11_200070/common/MediaProvider.dart';
@@ -18,7 +18,6 @@ class MediaList extends StatefulWidget {
 
 class _MediaListState extends State<MediaList> {
   List<Media> _media = [];
-  // List<Media> _media = new List.empty();
   @override
   void initState() {
     super.initState();
@@ -28,7 +27,6 @@ class _MediaListState extends State<MediaList> {
   @override
   void didUpdateWidget(MediaList oldWidget){
     if (oldWidget.provider.runtimeType != widget.provider.runtimeType) {
-      // _media = [];
       _media = [];
       loadMedia();
     }

@@ -19,8 +19,9 @@ class HttpHandler {
   }
 
   Future<List<Media>> fetchMovies({String category = "populares"}) async {
-    var uri = Uri.https(_baseUrl, "3/movie/$category",
-        {'api_key': API_KEY, 'page': "1", 'language': _lenguaje});
+    var uri = Uri.https(_baseUrl, "3/movie/$category", {'api_key': API_KEY, 'page': "1", 'language': _lenguaje});
+    //var uri = Uri.https(_baseUrl, "3/movie/upcoming", {'api_key': API_KEY, 'page': "1", 'language': _lenguaje});
+
 
     return getJson(uri).then(
         ((data) => data['results'].map<Media>((item) => Media(item, MediaType.movie)).toList()));

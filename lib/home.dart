@@ -1,6 +1,5 @@
 import 'package:dmi_practica11_200070/model/Media.dart';
 import 'package:flutter/material.dart';
-// import 'package:dmi_practica08_200070/common/HttpHandler.dart';
 import 'package:dmi_practica11_200070/media_list.dart';
 import 'package:dmi_practica11_200070/common/MediaProvider.dart';
 
@@ -131,7 +130,7 @@ class _HomeState extends State<Home> {
     return (mediaType == MediaType.movie) ?
     <Widget>[
       MediaList(movieProvider, "popular"),
-      MediaList(movieProvider, "upcoming"),  // Mostrar películas por estrenarse
+      MediaList(movieProvider, "upcoming"),
       MediaList(movieProvider, "top_rated"),
     ]:<Widget>[
       MediaList(showProvider, "popular"),
