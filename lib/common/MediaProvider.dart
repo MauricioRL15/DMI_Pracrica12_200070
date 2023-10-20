@@ -1,23 +1,23 @@
 import 'dart:async';
-import 'package:dmi_practica11_200070/model/Media.dart';
-import 'package:dmi_practica11_200070/common/HttpHandler.dart';
+import 'package:dmi_practica12_200070/model/Media.dart';
+import 'package:dmi_practica12_200070/common/HttpHandler.dart';
 
-abstract class MediaProvider{
+abstract class MediaProvider {
   Future<List<Media>> fetchMedia(String category);
 }
 
-class MovieProvider extends MediaProvider{
+class MovieProvider extends MediaProvider {
   HttpHandler _client = HttpHandler.get();
   @override
-  Future<List<Media>> fetchMedia(String category){
+  Future<List<Media>> fetchMedia(String category) {
     return _client.fetchMovies(category: category);
   }
 }
 
-class ShowProvider extends MediaProvider{
+class ShowProvider extends MediaProvider {
   HttpHandler _client = HttpHandler.get();
   @override
-    Future<List<Media>> fetchMedia(String category){
-      return _client.fetchShow(category: category);
-    }
+  Future<List<Media>> fetchMedia(String category) {
+    return _client.fetchShow(category: category);
+  }
 }
